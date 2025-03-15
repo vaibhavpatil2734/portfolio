@@ -1,0 +1,55 @@
+/* General Layout */
+.main-content {
+  height: calc(100vh - 56px); /* Full height minus navbar height */
+}
+
+/* Terminal Section */
+.terminal {
+  position: absolute;
+  left: 0%;
+  height: 92.4%;
+  width: 50%;
+  background-color: rgb(45, 44, 44);
+  color: lime;
+  font-family: "Courier New", Courier, monospace;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+
+
+/* Info Section */
+.panel {
+  position: absolute;
+  left: 50%;
+  height: 92.4%;
+  width: 50%;
+  background-color:rgb(45, 44, 44);
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  overflow-y: auto;
+  padding: 1rem;
+
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .main-content {
+    flex-direction: column;
+  }
+
+  .terminal,
+  .panel {
+    height: 50vh;
+  }
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}

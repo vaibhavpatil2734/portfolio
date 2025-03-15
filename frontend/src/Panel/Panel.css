@@ -1,0 +1,76 @@
+.info-panel {
+  position: fixed;
+  width: 48%;
+  height: 88%; /* Enable vertical scrolling */
+  color: white;
+  font-family: "Arial", sans-serif;
+  
+}
+
+.panel-box {
+  position: absolute;
+  top: 50%; /* Vertically center */
+  left: 50%; /* Horizontally center */
+  transform: translate(-50%, -50%); /* Adjust position to center the box */
+  height: 100%;
+  width: 100%; /* Optional: Adjust width if needed */
+  display: flex; /* Optional: Use flexbox for better content alignment */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  text-align: center; /* Center text */
+  z-index: 10;
+  background-color: rgba(165, 42, 42, 0.726);
+}
+
+
+/* Canvas occupies the entire panel as background */
+.matrixCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 99.9%;
+  height: 100%;
+  z-index: 0;
+  background-color: rgba(100, 31, 31, 0.648);
+  pointer-events: none; /* Ensure canvas doesn't block interaction with content */
+}
+
+
+.body{
+  position: relative;
+  left: 0%;
+  top: 0%;
+  height:100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(125, 38, 38, 0.075);
+}
+.footer {
+  position: absolute;
+  top: 110%;
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 14px;
+  color: white;
+  background-color: rgba(100, 31, 31, 0.8);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Styled Scrollbar */
+.body::-webkit-scrollbar {
+  width: 5px;
+  margin-right: 5%;
+}
+
+.body::-webkit-scrollbar-track {
+  border-radius: 8px;
+  background-color: #e7e7e7;
+  border: 1px solid #cacaca;
+}
+
+.body::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background-color: #0e1347;
+}
+

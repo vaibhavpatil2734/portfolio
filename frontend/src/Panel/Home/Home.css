@@ -1,0 +1,79 @@
+/* Centering the HomeBox */
+.HomeBox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    max-width: 700px;
+    padding: 50px;
+    backdrop-filter: blur(10px);
+    border: 2px solid white;  /* Added white border */
+    border-radius: 15px;
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    color: white;
+    font-family: "Poppins", sans-serif;
+}
+
+
+/* Ensure box size remains fixed */
+.typing-box {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 15px;
+    color: white;
+    background: #0f3460; /* Solid background for contrast */
+    padding: 12px 20px;
+    border-radius: 8px;
+    min-height: 50px; /* Fixed height to prevent size changes */
+    display: inline-block;
+    width: auto;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Title Styles */
+h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+/* Animated waving emoji */
+.wave {
+    animation: waveAnimation 1.5s infinite;
+    display: inline-block;
+}
+
+@keyframes waveAnimation {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(15deg); }
+    50% { transform: rotate(0deg); }
+    75% { transform: rotate(-15deg); }
+}
+
+/* Name Styling */
+.name {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+/* Highlighted name */
+.highlight {
+    color: #ffcc00;
+}
+
+/* Fixing the box from resizing */
+.typing-box::after {
+    content: "|"; /* Cursor effect */
+    display: inline-block;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+
