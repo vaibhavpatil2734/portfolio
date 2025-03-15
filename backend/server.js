@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const validator = require("validator"); // For email validation
 const cors = require("cors");
+require("dotenv").config(); // Load environment variables
 
 const app = express();
 app.use(express.json()); // Middleware to parse JSON bodies
@@ -9,10 +10,11 @@ app.use(express.json()); // Middleware to parse JSON bodies
 // ✅ Allow all origins with CORS
 app.use(cors({ origin: "*", methods: ["GET", "POST"], allowedHeaders: ["Content-Type"] }));
 
-// ✅ Connect to MongoDB
+// ✅ Connect to MongoDB using environment variable
 const connectDB = async () => {
   try {
-    await mongoose.connect("mongodb://127.0.0.1:27017/contactDB", {
+    const MONGO_URI = process.env.MONGO_URI || "mongodb://127.0.0.1:27017/contactDB";
+    await mongoose.connect(MONGO_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
@@ -49,7 +51,6 @@ const Contact = mongoose.model("Contact", contactSchema);
 app.post("/contact", async (req, res) => {
   const { email, message } = req.body;
 
-  // ✅ Check if email and message are provided
   if (!email || !message) {
     return res.status(400).json({ error: "Email and message are required" });
   }
@@ -57,7 +58,6 @@ app.post("/contact", async (req, res) => {
   try {
     console.log("📩 Received Contact Request:", req.body);
     
-    // ✅ Save contact data to database
     const contact = new Contact({ email, message });
     await contact.save();
     
@@ -69,8 +69,8 @@ app.post("/contact", async (req, res) => {
   }
 });
 
-// ✅ Start the server
-const PORT = 5000;
+// ✅ Dynamic PORT binding for Render
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`🚀 Server is live on http://localhost:${PORT}`);
 });
