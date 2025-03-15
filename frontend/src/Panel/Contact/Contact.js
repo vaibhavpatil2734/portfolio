@@ -15,7 +15,7 @@ export default function Contact() {
     setFormStatus("loading");
 
     try {
-      const response = await axios.post("http://localhost:5000/contact", { email, message });
+      const response = await axios.post("https://vaibhavs-workbench.onrender.com/contact", { email, message });
       if (response.status === 201) {
         setFormStatus("success");
         setEmail("");
