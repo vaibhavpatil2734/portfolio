@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const validator = require("validator"); // For email validation
 const cors = require("cors");
 
+
 const app = express();
 app.use(express.json()); // Middleware to parse JSON bodies
 
